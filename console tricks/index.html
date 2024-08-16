@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p onclick="makeGreen()">BREAK DOWN</p>
+
+
+    <script>
+        const dogs = [{name: 'Snickers', age:2},{name:'hugo',age:8}];
+        var p = document.querySelector('p');
+        function makeGreen(){
+        
+            p.style.color = '#bada55';
+            p.style.fontSize = '50px';
+        }
+
+        //Regular
+        console.log("hello");
+        //clearing all mesagges
+        console.clear();
+        //Styled
+        console.log('%c I am red','background:red;text-shadow:10px');
+        //warning
+        console.warn("OH NOO");
+        //Error
+        console.error("Shit");
+        //Info
+        console.info('just i icon');
+        //testing
+        console.assert(1===2,"that is wrong")
+        //clearing all mesagges
+        console.clear();
+        //view dowm elements
+        console.log(p);
+        console.dir(p);
+        //grouping together
+        dogs.forEach(dog =>{
+            console.group(`${dog.name}`);
+            console.log(`${dog.name} is ${dog.age} years old`);
+            console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+            console.groupEnd(`${dog.name}`);
+        });
+        //counting
+        console.count('Wes');
+        //timing
+        console.time('fetching data');
+        fetch('https://api.github.com/users/wesbos')
+            .then(data => data.json())
+            .then(data =>{
+                console.timeEnd('fetching data');
+                console.log(data);
+            });
+        //table
+        console.table(dogs);
+    </script>
+
+</body>
+</html>
